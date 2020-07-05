@@ -65,7 +65,7 @@ export default {
       axios
         .put(`/admin/users/${form.id}`, form)
         .then(response => {
-          if (response.status === 201) {
+          if (response.status === 200) {
             this.users.unshift(response.data.data);
             this.showModalCreate = false;
             this.getUsers();
