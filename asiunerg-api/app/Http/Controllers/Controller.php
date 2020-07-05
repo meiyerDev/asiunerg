@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Validator;
 
 class Controller extends BaseController
 {
@@ -27,5 +28,25 @@ class Controller extends BaseController
         $dateNextMeet = new \Carbon\Carbon("next $day");
         
         return $dateNextMeet;
+    }
+
+    /* 
+    |
+    | Método para validar y devolver toastr alert
+    |
+    */
+    public function toastrValidate(array $data, array $rules, array $messages = [], array $customAttributes = [])
+    {
+        $validate = Validator::make($data,$rules,$messages,$customAttributes);
+        if ($validate->fails()) {
+            $errors = $validate->errors();
+            foreach ($errors->all() as $message) {
+                toastr()->error($message, __('The given data was invalid.'));
+            }
+
+            return False;
+        }
+
+        return True;
     }
 }

@@ -18,7 +18,7 @@
     <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Argon CSS -->
     <link type="text/css" rel="stylesheet" href="{{ asset('css/argon-dashboard.css', $secure = null) }}">
-
+    @toastr_css
     <style>
     </style>
 </head>
@@ -50,6 +50,8 @@
     <!-- Argon JS -->
     <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    @toastr_js
+    @toastr_render
 </body>
 
 </html>

@@ -113,6 +113,10 @@ return [
         'week' => 'semana',
         'reason' => 'razón',
         'observation' => 'observación',
+        'type_report' => 'tipo de reporte',
+        'department' => 'departamento',
+        'username' => 'nombre de usuario',
+        'name' => 'nombre'
     ],
 
 ];

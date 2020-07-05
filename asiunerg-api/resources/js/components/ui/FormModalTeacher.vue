@@ -59,14 +59,14 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h3 class="modal-title">Crear nuevo usuario profesor</h3>
+							<h3 class="modal-title">{{teacher.id === undefined ? 'Crear nuevo usuario profesor': 'Actualizar usuario profesor'}}</h3>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true" @click="$emit('close')">&times;</span>
 							</button>
 						</div>
 						<form @submit.prevent="handleSubtmit">
 							<div class="modal-body row">
-								<div class="alert alert-danger" v-if="error">{{ errorMessage }}</div>
+								<div class="alert alert-danger col-12" v-if="error">{{ errorMessage }}</div>
 								<slot name="body">
 									<div class="col-6 col-md-6 col-xl-12 form-group">
 										<label class="col-form-label">Cédula</label>

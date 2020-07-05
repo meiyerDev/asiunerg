@@ -34,7 +34,7 @@
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h3 class="modal-title">Crear nuevo usuario</h3>
+							<h3 class="modal-title">{{user.id === undefined ? 'Crear nuevo usuario': 'Actualizar usuario'}}</h3>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true" @click="$emit('close')">&times;</span>
 							</button>

@@ -168,6 +168,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class,
 
         /*
          * Application Service Providers...

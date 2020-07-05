@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Absence;
-use App\Models\AbsenceTeacher;
 use App\Pedoxa\Project;
 use App\Pedoxa\Teacher;
 use App\Pedoxa\Section;
@@ -23,12 +22,13 @@ class ReportsController extends Controller
 
     public function report(Request $request)
     {
-        $request->validate([
+        $validate = $this->toastrValidate($request->all(), [
             'type_report' => 'required',
             'identity' => 'required_if:type_report,1',
             'department' => 'required_if:type_report,2',
             'matter' => 'required_if:type_report,3',
         ]);
+        if(!$validate) {return back();}
 
         $type_report = $request->type_report;
         $project = Project::all()->last();
