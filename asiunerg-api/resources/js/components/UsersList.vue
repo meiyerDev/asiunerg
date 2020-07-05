@@ -36,6 +36,7 @@ export default {
           if (response.status === 201) {
             this.users.unshift(response.data.data);
             this.showModalCreate = false;
+            this.successToast({ message: `${response.data.message}` });
           }
         })
         .catch(error => {
@@ -69,6 +70,7 @@ export default {
             this.editUser = null;
             this.showModalUpdate = false;
             this.getUsers();
+            this.successToast({ message: `${response.data.message}` });
           }
         })
         .catch(error => {
