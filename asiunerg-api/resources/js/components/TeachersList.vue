@@ -42,6 +42,7 @@ export default {
       }
     },
     newTeacher(form) {
+      this.infoToast({ message: "Registrando nuevo usuario profesor." });
       axios
         .post("/admin/profesores", form)
         .then(response => {
@@ -68,6 +69,7 @@ export default {
         });
     },
     updateTeacher(form) {
+      this.infoToast({ message: "Actualizando usuario profesor." });
       axios
         .put(`/admin/profesores/${form.id}`, form)
         .then(response => {
