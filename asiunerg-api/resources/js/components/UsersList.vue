@@ -66,8 +66,8 @@ export default {
         .put(`/admin/users/${form.id}`, form)
         .then(response => {
           if (response.status === 200) {
-            this.users.unshift(response.data.data);
-            this.showModalCreate = false;
+            this.editUser = null;
+            this.showModalUpdate = false;
             this.getUsers();
           }
         })

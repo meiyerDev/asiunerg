@@ -48,6 +48,7 @@ export default {
           if (response.status === 201) {
             this.teachers.unshift(response.data.data);
             this.showModalCreate = false;
+            this.successToast({ message: `${response.data.message}` });
           }
         })
         .catch(error => {
@@ -71,9 +72,10 @@ export default {
         .put(`/admin/profesores/${form.id}`, form)
         .then(response => {
           if (response.status === 200) {
-            this.editUser = null;
+            this.editTeacher = null;
             this.showModalUpdate = false;
             this.getTeachers();
+            this.successToast({ message: `${response.data.message}` });
           }
         })
         .catch(error => {
@@ -96,6 +98,7 @@ export default {
       const response = await axios.delete(`/admin/profesores/${id}`);
       if (response.status === 200) {
         this.getTeachers();
+        this.successToast({ message: `${response.data.message}` });
       } else if (error.response.status === 400) {
         this.errorToast({ message: `400 Bad Request` });
       } else if (error.response.status === 500) {
@@ -112,7 +115,7 @@ export default {
         .post("/admin/profesores/nuevo/excel", formData)
         .then(response => {
           this.getTeachers();
-          // this.successToast({ message: "." });
+          this.successToast({ message: `${response.data.message}` });
         })
         .catch(error => {
           if (error.response.status === 422) {
