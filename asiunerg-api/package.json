@@ -27,7 +27,7 @@
     },
     "dependencies": {
         "mini-toastr": "^0.8.1",
-        "node-sass": "^4.13.1",
+        "node-sass": "^7.0.0",
         "validate.js": "^0.13.1",
         "vue-notifications": "^1.0.2",
         "vue-pdf": "^4.1.0"
